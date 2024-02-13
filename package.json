@@ -1,6 +1,6 @@
 {
   "name": "galgame-download-site",
-  "version": "0.0.1",
+  "version": "dev-0.0.1",
   "description": "很垃圾的一个开源Galgame下载站",
   "main": "app.ts",
   "scripts": {
