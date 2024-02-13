@@ -1,0 +1,5 @@
+/** @format */
+
+#nprogress .bar {
+    background: rgb(255, 0, 0) !important;
+}
