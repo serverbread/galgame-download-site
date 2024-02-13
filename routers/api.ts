@@ -35,10 +35,7 @@ router.get("/api/content/*", (req, res) => {
     reqData.content = marked.parse(
         fs.readFileSync(path.join("./content", fileName)).toString()
     );
-    setTimeout(() => {
-        res.end(JSON.stringify(reqData));
-    }, 3000)
-    
+    res.end(JSON.stringify(reqData));
 
     return;
 });
