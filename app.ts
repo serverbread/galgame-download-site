@@ -4,7 +4,7 @@ require("./init.ts")(); // 初始化
 
 import express, { Application } from "express";
 //import spdy, { Server, ServerOptions } from "spdy";
-import http from "node:http";
+import http, { Server } from "node:http";
 import { Logger } from "log4js";
 import fs from "node:fs";
 import bodyParser from "body-parser";
@@ -16,7 +16,6 @@ const logger: Logger = require("./logger.ts");
 const config: any = require("./config.ts"); // load config
 logger.log(config);
 
-//logger.debug(config);
 const app: Application = express();
 
 // 打印欢迎消息
@@ -49,8 +48,7 @@ app.use((req, res, next) => {
 });
 
 async function bootstrap() {
-    const httpServer = http.createServer(app);
-    //const httpServer: any = http.createServer(app);
+    const httpServer: Server = http.createServer(app);
     httpServer.listen(config.port, () => {
         logger.log("http服务器已启动！");
     });

@@ -13,8 +13,7 @@ const router: Router = express.Router();
 
 router.use((req, res, next) => {
     // 设置缓存
-    
-
+    res.setHeader("Cache-Control", "max-age=36000");
     const reqPath: string = decodeURIComponent(req.url).split("?")[0];
 
     const localParsedPath: ParsedPath = path.parse(reqPath.replace("/", ""));
@@ -26,14 +25,16 @@ router.use((req, res, next) => {
     }
 
     const contentTypeList: any = require("../contentType.json");
-    let contentType: string = contentTypeList[localParsedPath.ext]
-        // 如果拓展名是未知的话
+    let contentType: string = contentTypeList[localParsedPath.ext];
+    // 如果拓展名是未知的话
     if (contentType) {
         res.setHeader("Content-Type", `${contentType}; charset=utf-8`);
     }
 
-    //logger.info(localParsedPath);
-    const localPath: string = path.join(localParsedPath.dir, localParsedPath.base)
+    const localPath: string = path.join(
+        localParsedPath.dir,
+        localParsedPath.base
+    );
     if (!fs.existsSync(localPath)) {
         logger.error(`找不到：${localPath}`);
         next();
@@ -45,12 +46,9 @@ router.use((req, res, next) => {
         next();
         return;
     }
-    //next();
-    res.setHeader("Cache-Control", "max-age=36000");
+
     res.end(fs.readFileSync(localPath));
     return;
-    //next();
-
 });
 
 module.exports = router;

@@ -25,20 +25,18 @@ router.use((req, res, next) => {
         res.end(fs.readFileSync("favicon.ico"));
         return;
     }
-    if (fs.existsSync(path.join('./content', reqPath))) {
-        const html: string = fs.readFileSync("resources/html/universe.html", "utf8");
-        const content: string = fs.readFileSync(path.join('./content', reqPath)).toString()
-        res.end(html.replace('%REPLACE%', marked.parse(content) as string));
+    if (fs.existsSync(path.join("./content", reqPath))) {
+        const html: string = fs.readFileSync(
+            "resources/html/universe.html",
+            "utf8"
+        );
+        const content: string = fs
+            .readFileSync(path.join("./content", reqPath))
+            .toString();
+        res.end(html.replace("%REPLACE%", marked.parse(content) as string));
         return;
     }
-    /*
-    if (reqPath === "/") {
-        const html: string = fs.readFileSync("resources/html/universe.html", "utf8");
-        const content: string = fs.readFileSync('content/index.md').toString()
-        res.end(html.replace('%REPLACE%', marked.parse(content) as string));
-        return;
-    }
-    */
+
     next();
     return;
 });
