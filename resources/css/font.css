@@ -1,0 +1,13 @@
+/** @format */
+
+@font-face {
+    font-family: "FiraCode Nerd Font";
+    src: url("/resources/font/FiraCodeNerdFontMono-Light.ttf");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "FiraCode Nerd Font";
+    src: url("/resources/font/FiraCodeNerdFontMono-Bold.ttf");
+    font-weight: bold;
+}

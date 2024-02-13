@@ -128,3 +128,9 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# auto generated
+config.yml
+logo.txt
+./routers/redirect.yml
+./data

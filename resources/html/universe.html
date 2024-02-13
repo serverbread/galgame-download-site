@@ -1,0 +1,239 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!--NProgress-->
+        <script src="/resources/js/nprogress.js"></script>
+        <link rel="stylesheet" href="/resources/css/nprogress.css" />
+        <script src="/resources/js/betterJump.js"></script>
+
+        <link rel="stylesheet" href="/resources/css/font.css" />
+        <link rel="stylesheet" href="/resources/css/global.css" />
+        <style>
+            * {
+                font-family: "FiraCode Nerd Font";
+            }
+        </style>
+        <title>GDS</title>
+    </head>
+    <body>
+        <div id="main-box">
+            <!--顶边栏列表及内容物样式设定-->
+            <style>
+                .bar-content {
+                    display: flex;
+                    margin: 0;
+                    padding: 0;
+                }
+                .bar-content li {
+                    list-style: none;
+                }
+
+                /*按钮设置*/
+                .bar-content li button {
+                    border: none;
+                    background-color: rgb(188, 213, 219);
+                    padding: 0;
+                    margin: 5px;
+                    text-align: center;
+                    font-size: xx-large;
+                    transition: all 0.2s;
+                }
+                .bar-content li button:hover {
+                    background-color: rgb(255, 255, 255);
+                }
+                .bar-content li button:active {
+                    opacity: 0.5;
+                }
+            </style>
+            <div id="top-bar">
+                <ul class="bar-content">
+                    <li>
+                        <button
+                            id="toggle-side-bar"
+                            style="
+                                display: flex;
+                                border-radius: 100%;
+                                width: 40px;
+                                height: 40px;
+                                text-align: center;
+                                justify-content: center;
+                                flex-direction: column;
+                            "
+                            onclick="toggleSideBar()">
+                            󰕲
+                        </button>
+                        <style>
+                            #sora {
+                                opacity: 1;
+                                transition: all 0.2s;
+                            }
+                            #sora:hover {
+                                opacity: 0;
+                                transition: all 0.2s;
+                            }
+                        </style>
+                    </li>
+                    <li class="top-bar-item">
+                        <a id="logo" href="/index.md" style="display: flex">
+                            <img
+                                src="favicon.ico"
+                                style="
+                                    margin: 5px;
+                                    width: 40px;
+                                    height: 40px;
+                                    object-fit: cover;
+                                "
+                                id="sora" /><span
+                                style="
+                                    display: flex;
+                                    align-items: center;
+                                    text-decoration: none;
+                                "
+                                >GDS</span
+                            >
+                        </a>
+                    </li>
+                    <li class="top-bar-item">
+                        <button
+                            style="
+                                border-radius: 5px;
+                                padding: 5px;
+                                justify-content: center;
+                            ">
+                            
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <style>
+                #top-bar {
+                    background-color: rgb(30, 150, 200);
+                    position: fixed;
+                    display: flex;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 50px;
+                }
+                #top-bar ul li {
+                    display: flex;
+                    margin-right: 15px;
+                }
+            </style>
+            <div id="side-bar">
+                <ul class="bar-content">
+                    <li>
+                        <a href="/index.md">=>主页</a>
+                    </li>
+                    <li>
+                        <a href="/about.md">=>关于</a>
+                    </li>
+                    <li>
+                        <a href="/downloads.md">=>下载</a>
+                    </li>
+                    <li>
+                        <a href="/wiki.md">=>Wiki</a>
+                    </li>
+                </ul>
+            </div>
+            <!--点击top-bar最左侧按钮开关side-bar-->
+            <script>
+                function toggleSideBar() {
+                    let sideBar = document.getElementById("side-bar");
+                    let toggleSideBarButton =
+                        document.getElementById("toggle-side-bar");
+                    if (!sideBar.classList.contains("side-bar-show")) {
+                        sideBar.classList.add("side-bar-show");
+                        toggleSideBarButton.style.transform = "rotate(90deg)";
+                    } else {
+                        sideBar.classList.remove("side-bar-show");
+                        toggleSideBarButton.style.transform = "";
+                    }
+                }
+            </script>
+            <style>
+                #side-bar {
+                    background-color: rgb(70, 175, 221);
+                    position: fixed;
+                    display: flex;
+                    flex-direction: row;
+                    top: 50px;
+                    width: 200px;
+                    height: calc(100% - 50px);
+                    transition: all 0.2s;
+
+                    left: -200px;
+                }
+                .side-bar-show {
+                    left: 0 !important;
+                }
+                #side-bar ul {
+                    display: flex;
+                    justify-content: flex-start;
+                    flex-direction: column;
+                    width: 100%;
+                }
+                #side-bar ul li {
+                    background-color: rgba(255, 255, 255, 0.2);
+                    margin: 10px;
+                    padding: 5px;
+                    border-radius: 10px;
+                }
+                #side-bar ul li:hover {
+                    background-color: rgba(255, 255, 255, 0.8);
+                    transition-duration: 0.4s;
+                }
+                #side-bar ul li a {
+                    display: block;
+                    width: 100%;
+                }
+            </style>
+            <div id="content">
+                <div>
+                    <span style="font-size: xx-large">󰆏</span>
+                    <div>%REPLACE%</div>
+                </div>
+            </div>
+            <style>
+                #content {
+                    background-color: lightgray;
+
+                    position: relative;
+                    margin-left: 15%;
+                    margin-top: 70px;
+                    border-radius: 30px;
+                    z-index: -1;
+                    height: 1000px;
+                    width: 75%;
+                }
+                #content div {
+                    position: relative;
+                    top: 5%;
+                    margin: 50px;
+                }
+            </style>
+            <div id="notice">
+                <p style="color: gray">由Node.js Express强力驱动。</p>
+                <p style="color: gray">仓库地址：</p>
+                <a
+                    style="color: blue"
+                    href="https://github.com/serverbread/Galgame-Download-Site"
+                    >https://github.com/serverbread/Galgame-Download-Site</a
+                >
+            </div>
+            <style>
+                #notice {
+                    position: relative;
+                    display: block;
+                    left: 0;
+                    margin-left: 7%;
+                    text-align: center;
+                }
+            </style>
+        </div>
+    </body>
+</html>
