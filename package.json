@@ -1,0 +1,29 @@
+{
+  "name": "galgame-download-site",
+  "version": "1.0.0",
+  "description": "简单的galgame下载战软件。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/colors": "^1.2.1",
+    "@types/koa": "^2.15.0",
+    "@types/koa-router": "^7.4.8",
+    "@types/log4js": "^2.3.5",
+    "@types/mime-types": "^2.1.4",
+    "@types/node": "^20.12.11",
+    "@types/ws": "^8.5.10",
+    "colors": "^1.4.0",
+    "koa": "^2.15.3",
+    "koa-router": "^12.0.1",
+    "log4js": "^6.9.1",
+    "mime-types": "^2.1.35",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5",
+    "ws": "^8.17.0"
+  }
+}
