@@ -22,6 +22,16 @@ app.use(async (ctx: Context, next: Next) => {
     await next();
 });
 
+/* 404处理
+*  在所有路由前面进行响应
+*/
+app.use(async (ctx, next) => {
+    ctx.status = 404;
+    ctx.type = "text/plain";
+    ctx.body = "404 Not Found😡";
+    await next();
+})
+
 // routes
 app.use(userRoutes);
 app.use(resourcesRoutes);
